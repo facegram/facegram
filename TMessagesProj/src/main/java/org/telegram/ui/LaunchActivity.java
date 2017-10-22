@@ -10,6 +10,7 @@ package org.telegram.ui;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -36,8 +37,10 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.telegram.messenger.AndroidUtilities;
@@ -79,6 +82,7 @@ import org.telegram.ui.Components.RecyclerListView;
 import org.telegram.ui.Components.StickersAlert;
 import org.telegram.ui.ActionBar.Theme;
 import org.telegram.ui.Components.ThemeEditorView;
+import org.telegram.ui.filterScreen.FilterActivity;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -386,6 +390,51 @@ public class LaunchActivity extends Activity implements ActionBarLayout.ActionBa
                     drawerLayoutContainer.closeDrawer(false);
                 } else if (id == 10) {
                     presentFragment(new CallLogActivity());
+                    drawerLayoutContainer.closeDrawer(false);
+                }
+                else if (id == 11) {
+                    presentFragment(new FontSelectActivity());
+                    drawerLayoutContainer.closeDrawer(false);
+                }else if (id == 12) {
+
+                    final Dialog dialog = new Dialog(LaunchActivity.this);
+                    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                    dialog.setContentView(R.layout.dialog_find_id);
+                    final TextView retry = (TextView) dialog.findViewById(R.id.retry);
+                    final TextView retry2 = (TextView) dialog.findViewById(R.id.textView4);
+                    final EditText id_field = (EditText) dialog.findViewById(R.id.id_field);
+                    retry2.setTypeface(AndroidUtilities.getTypeface("fonts/rmedium.ttf"));
+                    retry.setTypeface(AndroidUtilities.getTypeface("fonts/rmedium.ttf"));
+                    id_field.setTypeface(AndroidUtilities.getTypeface("fonts/rmedium.ttf"));
+                    View find = (View) dialog.findViewById(R.id.find);
+                    dialog.show();
+                    find.setOnClickListener(new View.OnClickListener() {
+
+                        @Override
+                        public void onClick(View arg0) {
+                            String str;
+                            if (id_field.getText().toString().trim().length() > 1) {
+                                if (id_field.getText().toString().trim().startsWith("@")) {
+                                    str = id_field.getText().toString().trim().substring(1, id_field.getText().toString().trim().length());
+
+                                } else {
+                                    str = id_field.getText().toString().trim();
+                                }
+                                Intent i = new Intent(Intent.ACTION_VIEW);
+                                i.setData(Uri.parse("http://t.me/" + str));
+                                handleIntent(i, false, false, false);
+                                dialog.dismiss();
+                            } else {
+                                id_field.setError(LocaleController.getString("EnterYourID", R.string.EnterYourID));
+                            }
+                        }
+                    });
+                    drawerLayoutContainer.closeDrawer(false);
+                }else if (id == 13) {
+                    presentFragment(new ThemeActivity());
+                    drawerLayoutContainer.closeDrawer(false);
+                } else if (id == 14) {
+                    startActivity(new Intent(ApplicationLoader.applicationContext,FilterActivity.class));
                     drawerLayoutContainer.closeDrawer(false);
                 }
             }

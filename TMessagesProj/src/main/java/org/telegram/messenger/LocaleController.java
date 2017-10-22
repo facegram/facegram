@@ -45,7 +45,7 @@ public class LocaleController {
     static final int QUANTITY_FEW = 0x0008;
     static final int QUANTITY_MANY = 0x0010;
 
-    public static boolean isRTL = false;
+    public static boolean isRTL = true;
     public static int nameDisplayOrder = 1;
     //  private static boolean is24HourFormat = false;
     private static boolean is24HourFormat = ApplicationLoader.applicationContext.getSharedPreferences("mainconfig", Activity.MODE_PRIVATE).getBoolean("enable24HourFormat", true);
@@ -1067,7 +1067,7 @@ public class LocaleController {
         }
         isRTL = lang.toLowerCase().equals("ar");
         SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("mainconfig", 0);
-        isRTL = preferences.getBoolean("is_rtl", false);
+        isRTL = preferences.getBoolean("is_rtl", true);
         nameDisplayOrder = lang.toLowerCase().equals("ko") ? 2 : 1;
 
         formatterMonth = createFormatter(locale, getStringInternal("formatterMonth", R.string.formatterMonth), "dd MMM");

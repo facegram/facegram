@@ -1,0 +1,170 @@
+<html idmmzcc-ext-docid="573673472"><head><meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+
+.statusStyle {
+	font-size: 11px;
+	color: #666666;
+	font-family:Tahoma, Geneva, sans-serif
+}
+.bodyTextstyle {font-size: 12px; font-family:Tahoma, Geneva, sans-serif}
+.editorTextstyle {font-size: 12px; font-family:Tahoma, Geneva, sans-serif}
+.buttonStyle {
+	font-size: 9pt;
+	font-family:Tahoma, Geneva, sans-serif;
+}
+
+html,body {
+height:100%;
+width:100%;
+overflow:hidden;
+margin: 0px;
+} 
+-->
+</style>
+<title>بهنویس</title><script type="text/javascript" src="%D8%A8%D9%87%D9%86%D9%88%DB%8C%D8%B3_files/localconvert.js"></script><script type="text/javascript" src="%D8%A8%D9%87%D9%86%D9%88%DB%8C%D8%B3_files/correctconvert.js"></script><script type="text/javascript" src="%D8%A8%D9%87%D9%86%D9%88%DB%8C%D8%B3_files/booster.js"></script><script language="JavaScript" src="%D8%A8%D9%87%D9%86%D9%88%DB%8C%D8%B3_files/ZeroClipboard.js"></script><script language="javascript">
+
+// for copying into the clipboard in firefox..
+if (!IE)
+{
+	ZeroClipboard.setMoviePath( '../javascript/zeroclipboard/ZeroClipboard.swf' );
+	var clip = new ZeroClipboard.Client();
+}
+
+
+function putCaretAtTheEndOfInputText()
+{
+	document.getElementById(latinControlId).focus();
+
+	// put caret at the end
+	if (IE)
+	{
+		setCaretPosition(document.getElementById(latinControlId), document.getElementById(latinControlId).value.length);
+	}
+	else
+	{
+		document.getElementById(latinControlId).selectionStart = document.getElementById(latinControlId).value.length;
+		document.getElementById(latinControlId).selectionEnd = document.getElementById(latinControlId).value.length;
+	}
+}
+
+function onPageLoad()
+{
+	farsiControlId = 'q';	
+	latinControlId = farsiControlId;
+	
+	latinTextIsHtml = false;
+	IsFirstTimeLatinInput= true;
+	
+	IsFirstTimeLatinInput= true;
+	convertAutomatically = false;
+	updateFarsiTextPeriodicallyIfNeeded();
+	
+// for correction
+	initIframe();
+	setEventHandlers();
+	
+	// flash cliboard is only used in firefox
+	if (!IE)
+	{
+	  clip.setHandCursor( false );
+	  clip.glue( 'copyButton' ); //  attach swf of zero clipboard to element
+	  clip.addEventListener('mouseOver', mouseOverCopyButton);
+	  clip.addEventListener('complete', copyToClipboardCompleted);
+	}
+	
+
+	if(IE) // enable (make visible) selected text copy button cell
+	{
+		document.getElementById('copySelectedTextCell').style.display = '';
+	}
+	
+
+}
+
+function searchButtonPressed()
+{
+	if (IsFirstTimeLatinInput)
+	{
+		submitAjaxRequestIfNecessary();
+	} else if (waitingForRequestResponse)
+	{
+		alert("بهجو در حال تبدیل متن ورودی می‌باشد. لطفا چند لحظه صبر کنید تا متن به فارسی‌ تبدیل شود سپس دستور خود را تکرار نمایید");		return;
+	}
+	getAds("search");
+	document.googleSearchForm.submit();
+}
+
+function mouseOverCopyButton()
+{
+	clip.setText(document.getElementById(farsiControlId).value);
+}
+
+
+function copyToClipboardCompleted()
+{
+	document.getElementById('copyButton').value = '  متن کپی‌ شد ';
+	setTimeout("document.getElementById('copyButton').value ='کپی تمامی متن';",1500);
+}
+
+function copyButtonPressed()
+{
+	 copyfarsiToClipboardIE();
+	 copyToClipboardCompleted()
+}
+
+function copySelectedTextButtonPressed()
+{
+	CopiedTxt = document.selection.createRange();
+
+   CopiedTxt.execCommand("Copy");
+   
+	document.getElementById('copySelectedButton').value = '  متن کپی‌ شد ';
+	setTimeout("document.getElementById('copySelectedButton').value ='کپی‌ متن منتخب';",1500);
+}
+
+</script><script src="%D8%A8%D9%87%D9%86%D9%88%DB%8C%D8%B3_files/warmup.htm" type="text/javascript"></script></head>
+
+ 
+ 
+<!--[if !IE]>-->
+  
+<!--<![endif]-->
+
+
+
+
+<body onload="onPageLoad();">
+<center>
+  <a href="http://www.fmailer.com/" target="_blank"></a>
+  <a href="http://www.fmailer.com/" target="_blank"></a>
+  <table width="90%" align="center" border="0" cellpadding="0">
+    <tbody><tr>
+      <td><strong>
+        </strong>
+        <div class="bodyTextstyle" id="convertTip" dir="rtl" style="margin-bottom:5;" align="right"><span class="bodyTextstyle" style="margin-bottom:5;">
+          <textarea name="q" id="q" class="editorTextstyle" style="width:100%; margin-top:5px;" tabindex="2" dir="rtl" rows="5" cols="20" onmousedown="cleanLatinTextonFirstKeyDownOrClick(event);" onkeydown="cleanLatinTextonFirstKeyDownOrClick(event);"></textarea>
+        </span></div>
+        <div class="statusStyle" id="conversionStatus" dir="rtl" align="right">آماده</div>
+        <strong>              </strong></td>
+    </tr>
+  </tbody></table>
+  <table width="90%" border="0" cellpadding="5">
+    <tbody><tr>           
+          <span class="bodyTextstyle">قدرت گرفته از بهنویس</a></span></td>
+    </tr>
+  </tbody></table>
+</center>
+<!--google tracking code starts-->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="%D8%A8%D9%87%D9%86%D9%88%DB%8C%D8%B3_files/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-1790906-4");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+<!--google tracking code ends-->
+
+<iframe style="position: absolute; display: block; top: 100px; left: 900px; z-index: 1; background-color: rgb(224, 236, 255); visibility: hidden;" scrolling="no" name="popupIframe" id="popupIframe" frameborder="1" width="300"></iframe><div style="position: absolute; left: 960px; top: 152px; width: 105px; height: 24px; z-index: 99;"><embed id="ZeroClipboardMovie_1" src="%D8%A8%D9%87%D9%86%D9%88%DB%8C%D8%B3_files/ZeroClipboard.swf" loop="false" menu="false" quality="best" bgcolor="#ffffff" name="ZeroClipboardMovie_1" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=1&amp;width=105&amp;height=24" wmode="transparent" height="24" width="105" align="middle"></div></body></html>

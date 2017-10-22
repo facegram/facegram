@@ -30,7 +30,7 @@ import java.util.ArrayList;
 public class DrawerLayoutAdapter extends RecyclerListView.SelectionAdapter {
 
     private Context mContext;
-    private ArrayList<Item> items = new ArrayList<>(11);
+    private ArrayList<Item> items = new ArrayList<>(15);
 
     public DrawerLayoutAdapter(Context context) {
         mContext = context;
@@ -113,6 +113,10 @@ public class DrawerLayoutAdapter extends RecyclerListView.SelectionAdapter {
         items.add(new Item(4, LocaleController.getString("NewChannel", R.string.NewChannel), R.drawable.menu_broadcast));
         items.add(null); // divider
         items.add(new Item(6, LocaleController.getString("Contacts", R.string.Contacts), R.drawable.menu_contacts));
+        items.add(new Item(11, LocaleController.getString("Fonts", R.string.Fonts), R.drawable.menu_settings));
+        items.add(new Item(12, LocaleController.getString("FindID", R.string.FindID), R.drawable.ic_menu_ans));
+        items.add(new Item(13, LocaleController.getString("Theme", R.string.Theme), R.drawable.menu_themes));
+        items.add(new Item(14, LocaleController.getString("FilterScreen", R.string.FilterScreen), R.drawable.menu_help));
         if (MessagesController.getInstance().callsEnabled) {
             items.add(new Item(10, LocaleController.getString("Calls", R.string.Calls), R.drawable.menu_calls));
         }

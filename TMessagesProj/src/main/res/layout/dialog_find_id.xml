@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="300dp"
+    android:padding="20dp"
+    android:layout_height="wrap_content"
+    android:weightSum="1">
+
+    <ImageView
+        android:layout_width="84dp"
+        android:layout_height="84dp"
+        android:id="@+id/imageView7"
+        android:src="@drawable/search_icon"
+        android:layout_gravity="center_horizontal"
+        android:padding="8dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/EnterTheID"
+        android:id="@+id/textView4"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="#4e4e4e"
+        android:textSize="18sp"
+        android:layout_marginRight="12dp"
+        android:layout_weight="0.13" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/id_field"
+        android:layout_gravity="center_horizontal" />
+
+    <LinearLayout
+        android:id="@+id/find"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_margin="13dp"
+        android:background="#1fcbe2"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/retry"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:padding="4dp"
+            android:text="@string/Find"
+            android:textColor="#ffffff"
+            android:textSize="17sp" />
+    </LinearLayout>
+
+</LinearLayout>

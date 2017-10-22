@@ -397,12 +397,62 @@ public class AndroidUtilities {
 
     public static Typeface getTypeface(String assetPath) {
         synchronized (typefaceCache) {
+
+            SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("mainconfig", Activity.MODE_PRIVATE);
+            String font = preferences.getString("font_type", "ایران سانس نازک");
+            switch (font){
+                case "تلگرام":
+                    assetPath = "fonts/rmedium.ttf";
+                    break;
+                case "ایران سانس نازک":
+                    assetPath = "fonts/iransans_light.ttf";
+                    break;
+                case "ایران سانس خیلی نازک":
+                    assetPath = "fonts/iransans_ultrlight.ttf";
+                    break;
+                case "ایران سانس معمولی":
+                    assetPath = "fonts/iransans.ttf";
+                    break;
+                case "ایران سانس متوسط":
+                    assetPath = "fonts/iransans_medium.ttf";
+                    break;
+                case "ایران سانس ضخیم":
+                    assetPath = "fonts/iransans_bold.ttf";
+                    break;
+                case "افسانه":
+                    assetPath = "fonts/afsaneh.ttf";
+                    break;
+                case "دست نویس":
+                    assetPath = "fonts/dastnevis.ttf";
+                    break;
+                case "هما":
+                    assetPath = "fonts/hama.ttf";
+                    break;
+                case "مروارید":
+                    assetPath = "fonts/morvarid.ttf";
+                    break;
+                case "یکان":
+                    assetPath = "fonts/yekan.ttf";
+                    break;
+                case "ترافیک":
+                    assetPath = "fonts/traffic.ttf";
+                    break;
+                case "کودک":
+                    assetPath = "fonts/koodak.ttf";
+                    break;
+                case "لوتوس":
+                    assetPath = "fonts/lotus.ttf";
+                    break;
+                default:
+                    break;
+            }
+
             if (!typefaceCache.containsKey(assetPath)) {
                 try {
                     Typeface t = Typeface.createFromAsset(ApplicationLoader.applicationContext.getAssets(), assetPath);
                     typefaceCache.put(assetPath, t);
                 } catch (Exception e) {
-                    FileLog.e("Could not get typeface '" + assetPath + "' because " + e.getMessage());
+                    //  FileLog.e("Typefaces", "Could not get typeface '" + assetPath + "' because " + e.getMessage());
                     return null;
                 }
             }

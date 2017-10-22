@@ -17,7 +17,7 @@
         <item name="android:windowBackground">@android:color/white</item>
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:colorPrimaryDark">#426482</item>
-        <item name="android:colorPrimary">#527da3</item>
+        <item name="android:colorPrimary">#1b428a</item>
     </style>
 
     <style name="Theme.TMessages" parent="@android:style/Theme.Material.Light">
@@ -32,7 +32,7 @@
         <item name="android:listChoiceBackgroundIndicator">@drawable/list_selector_ex</item>
         <item name="android:actionBarItemBackground">@drawable/bar_selector_style</item>
         <item name="android:colorPrimaryDark">#33000000</item>
-        <item name="android:colorPrimary">#527da3</item>
+        <item name="android:colorPrimary">#1b428a</item>
         <item name="android:alertDialogTheme">@style/Theme.TMessages.Dialog.Alert</item>
         <item name="android:colorControlActivated">#4991cc</item>
         <item name="android:datePickerStyle">@style/Theme.TMessages.DatePicker</item>
@@ -78,7 +78,7 @@
     <!--ACTION BAR-->
 
     <style name="ActionBar.Transparent.TMessages.Start" parent="android:style/Widget.Material.Light.ActionBar">
-        <item name="android:background">#ff527da3</item>
+        <item name="android:background">#ff1b428a</item>
         <item name="android:logo">@drawable/transparent</item>
         <item name="android:title">""</item>
     </style>

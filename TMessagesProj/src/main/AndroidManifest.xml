@@ -65,7 +65,7 @@
         android:name=".ApplicationLoader"
         android:allowBackup="false"
         android:hardwareAccelerated="@bool/useHardwareAcceleration"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@mipmap/ic_launcher"
         android:largeHeap="true"
         android:theme="@style/Theme.TMessages.Start"
         android:manageSpaceActivity="org.telegram.ui.ManageSpaceActivity">
@@ -316,6 +316,11 @@
         <meta-data android:name="com.google.android.gms.car.application" android:resource="@xml/automotive_app_desc" />
 
         <meta-data android:name="com.google.android.gms.vision.DEPENDENCIES" android:value="face"  />
+
+        <activity
+            android:name="org.telegram.ui.filterScreen.FilterActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Transparency"></activity>
     </application>
 
 </manifest>
